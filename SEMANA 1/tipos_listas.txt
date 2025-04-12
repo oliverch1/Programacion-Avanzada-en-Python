@@ -1,0 +1,6 @@
+
+1: list[int] = [1,2,3,4,5]
+2 tuple[str] = ('a','b','c','d')
+3 set[str] = {'a','b','a','g','h','b','d'} ----> se eliminan datos repititivos
+4 dict[int,str] = {1:'enero', 2:'febrero', 3:'marzo'}
+
