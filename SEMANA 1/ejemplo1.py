@@ -16,3 +16,27 @@ names: set[str] = {"Elvio", "Dina", "Elmer", "Elvio"}
 #print(pares) #genera una lista
 #print(meses) #genera un diccionario
 #print(names) #genera una lista sin valores repetidos}
+
+#calculando el promedio de notas
+import random
+def promedio_notas(notas: list[float]) -> float:
+    return sum(notas)/len(notas)
+
+notas: list[float] = []
+for _ in range(20):
+    if random.choice([True,False]):
+        nota = round(random.uniform(0,20),2)
+    else:
+        nota = random.randint(0,20)
+    notas.append(nota)
+
+#print(f"Notas: {notas}\nPromedio de notas: {promedio_notas(notas):.2f}")
+
+#DATOS EN COMUN DE FILAS Y COLUMNAS
+from typing import Optional
+def valores_comun(fila: list[int], columna: list[int]) -> Optional[set]:
+    if len(set(fila) & set(columna)) > 0:
+        return set(fila) & set(columna)
+    else:
+        None
+
