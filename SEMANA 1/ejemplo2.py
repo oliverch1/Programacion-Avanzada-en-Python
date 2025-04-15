@@ -1,4 +1,4 @@
-# *args y **kwargs
+# *ARGS **KWARGS
 from typing import Any
 
 def  foo(*args: str, **kwargs: str) -> Any:
@@ -18,4 +18,32 @@ def rango_letras(inicio: str='A', fin: str='Z', caso: str='upper', reverso: bool
     if all([inicio.isalpha(),fin.isalpha()]):
         if inicio.upper() < fin.upper():
             if not reverso:
-                pass
+                letra = ord(inicio.upper())-1
+                while letra < ord(fin.upper()):
+                    letra += 1
+                    if caso == 'upper':
+                        yield chr(letra).upper()
+                    elif caso == 'lower':
+                        yield chr(letra).lower()
+                    else:
+                        raise AttributeError
+            else:
+                letra = ord(inicio.upper()) + 1
+                while letra > ord(fin.upper()):
+                    letra -= 1
+                    if caso == 'upper':
+                        yield chr(letra).upper()
+                    elif caso == 'lower':
+                        yield chr(letra).lower()
+                    else:
+                        raise AttributeError
+        else:
+            raise ValueError
+    else:
+        raise ValueError
+
+gen = rango_letras('A', 'C')
+print(next(gen))
+print(next(gen))
+print(next(gen))
+print(next(gen)) 
