@@ -23,4 +23,4 @@ def factores_primos(n):
             
     return factores
 
-print(factores_primos(360))
+print(factores_primos(20))

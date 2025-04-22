@@ -17,7 +17,8 @@ names: set[str] = {"Elvio", "Dina", "Elmer", "Elvio"}
 #print(meses) #genera un diccionario
 #print(names) #genera una lista sin valores repetidos}
 
-#calculando el promedio de notas
+#%%
+#CALCULANDO EL PROMEDIO DE NOTAS
 import random
 def promedio_notas(notas: list[float]) -> float:
     return sum(notas)/len(notas)
@@ -32,6 +33,7 @@ for _ in range(20):
 
 #print(f"Notas: {notas}\nPromedio de notas: {promedio_notas(notas):.2f}")
 
+#%%
 #DATOS EN COMUN DE FILAS Y COLUMNAS
 from typing import Optional
 def valores_comun(fila: list[int], columna: list[int]) -> Optional[set]:
@@ -40,3 +42,38 @@ def valores_comun(fila: list[int], columna: list[int]) -> Optional[set]:
     else:
         None
 
+fila = random.sample(range(0,20),10)
+columna = random.sample(range(0,20),10)
+
+#print(f"Filas: {fila}\nColumnas: {columna}\n\nValores Comunes: {valores_comun(fila,columna)}")
+
+#%%
+#CALCULO DEL IMC
+def IMC(altura: int | float, peso: int | float) -> float:
+    return peso/altura**2
+
+peso = round(random.normalvariate(70,10),2)
+peso = min(max(peso,50),100)
+altura = round(random.normalvariate(1.70,0.1),2)
+altura = min(max(altura,1.50),2.00)
+
+#print(f"Peso: {peso}kg\nAltura: {altura}m\nIMC: {IMC(altura,peso):.2f}")
+
+#%%
+from Factorial import factorial
+import time
+
+while True:
+    num = input("Ingrese un numero: ")
+    try:
+        num = int(num)
+        if num < 0:
+            print("Ingrese un numero positivo")
+            time.sleep(2)
+        else:
+            break
+    except ValueError:
+        print("Error, ingrese un numero entero positivo")
+        time.sleep(2)
+
+#print(f"El factorial de {num} es {factorial(num)}")
